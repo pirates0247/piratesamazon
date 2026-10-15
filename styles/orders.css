@@ -1,0 +1,327 @@
+.main-container{
+  max-width: 850px;
+  margin-top: 90px;
+  margin-bottom: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Title bar with filters ───────────────────────── */
+.orders-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.orders-filter-bar {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 7px 18px;
+  border-radius: 20px;
+  border: 1px solid rgb(213, 217, 217);
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(86, 89, 89);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: rgb(247, 250, 250);
+  border-color: rgb(180, 184, 184);
+}
+
+.filter-btn.active {
+  background: rgb(15, 17, 17);
+  color: #fff;
+  border-color: rgb(15, 17, 17);
+}
+
+/* ── Search status bar ───────────────────────────── */
+.orders-search-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  background: rgb(240, 242, 242);
+  border: 1px solid rgb(213, 217, 217);
+  border-radius: 8px;
+  font-size: 14px;
+  color: rgb(33, 33, 33);
+}
+
+.search-result-count {
+  color: rgb(86, 89, 89);
+  font-weight: 500;
+}
+
+.clear-search-btn {
+  margin-left: auto;
+  padding: 4px 14px;
+  border: 1px solid rgb(213, 217, 217);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(86, 89, 89);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.clear-search-btn:hover {
+  background: rgb(247, 250, 250);
+  border-color: rgb(180, 184, 184);
+}
+
+/* ── Delivery status badges ──────────────────────── */
+.delivery-status-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 6px;
+  letter-spacing: 0.2px;
+}
+
+.delivery-status-badge.delivered {
+  background: rgba(6, 125, 98, 0.1);
+  color: rgb(6, 125, 98);
+}
+
+.delivery-status-badge.arriving {
+  background: rgba(255, 153, 0, 0.12);
+  color: rgb(200, 110, 0);
+}
+
+/* ── Empty orders state ──────────────────────────── */
+.empty-orders {
+  text-align: center;
+  padding: 60px 20px;
+  color: rgb(86, 89, 89);
+}
+
+.empty-orders-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.empty-orders h2 {
+  font-size: 22px;
+  color: rgb(15, 17, 17);
+  margin-bottom: 8px;
+}
+
+.empty-orders p {
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.empty-orders-btn {
+  display: inline-block;
+  padding: 10px 28px;
+  font-size: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* ── Order containers ────────────────────────────── */
+.orders-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 50px;
+}
+.order-header{
+  background-color: rgb(240, 242, 242);
+  border: 1px solid rgb(213, 217, 217);
+  padding: 20px 25px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.order-header-left-section{
+  display: flex;
+  flex-shrink: 0;
+}
+.order-date{
+  font-weight: 500;
+}
+.order-date-container{
+  margin-right: 45px;
+}
+.total-line{
+  font-weight: 500;
+}
+.order-id-container{
+  flex-shrink: 1;
+}
+.order-id-line{
+  font-weight: 500;
+}
+.order-id-value {
+  font-size: 14px;
+  color: rgb(33, 33, 33);
+}
+.order-details-grid{
+  padding: 40px 25px;
+  border: 1px solid rgb(213, 217, 217);
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  display: grid;
+  grid-template-columns: 110px 1fr 220px;
+  column-gap: 35px;
+  row-gap: 60px;
+  align-items: center;
+}
+.product-image-container img{
+  max-width: 110px;
+  max-height: 110px;
+}
+.product-details{
+  display: flex;
+  flex-direction: column;
+}
+.product-name{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.product-delivery-date{
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.product-quantity{
+  margin-bottom: 8px;
+}
+.buy-again-button{
+  font-size: 15px;
+  width: 140px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.buy-again-button img{
+  width: 25px;
+  margin-right: 15px;
+}
+.product-actions{
+  align-self: start;
+}
+.track-package-button{
+  width: 100%;
+  font-size: 15px;
+  padding: 8px;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 575px) {
+  .order-header {
+    flex-direction: column;
+    align-items: start;
+    line-height: 23px;
+    padding: 15px;
+  }
+
+  .order-header-left-section {
+    flex-direction: column;
+  }
+
+  .order-date,
+  .total-line,
+  .order-id-line {
+    margin-right: 5px;
+  }
+
+  .order-date-container,
+  .total {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin-right: 0;
+  }
+
+  .order-id-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+
+  .orders-title-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .orders-search-status {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 800px) {
+  .order-details-grid {
+    grid-template-columns: 110px 1fr;
+    row-gap: 0;
+    padding-bottom: 8px;
+  }
+  .buy-again-button {
+    margin-bottom: 10px;
+  }
+  .product-actions {
+    grid-column: 2;
+    margin-bottom: 30px;
+  }
+
+  .track-package-button {
+    width: 140px;
+  }
+}
+@media (max-width: 450px) {
+  .order-details-grid {
+    grid-template-columns: 1fr;
+  }
+  .product-image-container {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .product-image-container img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+  .product-name {
+    margin-bottom: 10px;
+  }
+  .product-quantity {
+    margin-bottom: 15px;
+  }
+  .buy-again-button {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .product-actions {
+    grid-column: auto;
+    margin-bottom: 70px;
+  }
+  .track-package-button {
+    width: 100%;
+    padding: 12px;
+  }
+}

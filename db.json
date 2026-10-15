@@ -1,0 +1,135 @@
+{
+  "users": [
+    {
+      "id": "252968c7-249a-4a64-a3e5-3748cbac306a",
+      "name": "Test User",
+      "email": "test@pirates.com",
+      "passwordHash": "$2a$10$gWlJayNjR45jNk1GKu7pt.9sgo6w1XXp2l1lLkp0MNKs5VPWKsN.y",
+      "createdAt": "2026-09-07T16:00:25.522Z"
+    },
+    {
+      "id": "e0f95248-30c2-4de7-929c-844116fae31a",
+      "name": "Jack Sparrow",
+      "email": "jack@blackpearl.com",
+      "passwordHash": "$2a$10$VXS00ALyDG2kB9GSX/tl6Oe6JXHcacYkbvuB4K8u793rbMT/t91FC",
+      "createdAt": "2026-09-07T16:32:34.481Z"
+    },
+    {
+      "id": "77bd8850-35b0-4e3f-be42-60163921ad7c",
+      "name": "Pirates",
+      "email": "pirate@gmail.com",
+      "passwordHash": "$2a$10$47W8H4cc8An3qu1JgbkorOENiRkCx7e8Dgiu288BWjnjZ9f1qNuhi",
+      "createdAt": "2026-09-07T16:37:21.361Z"
+    },
+    {
+      "id": "0e63bbce-93f0-47a9-a4b4-8376cc804131",
+      "name": "Tharun",
+      "email": "tharun@gmail.com",
+      "passwordHash": "$2a$10$RoUk9xOxWXePZRNVkAEf6.4d88Ty2GwdObR1MJYMMX0htpoHiY3F.",
+      "createdAt": "2026-09-07T16:54:24.436Z"
+    },
+    {
+      "id": "e1f84815-d3a4-4cff-a669-d7f0c1c21f8c",
+      "name": "Test User",
+      "email": "testuser@example.com",
+      "passwordHash": "$2a$10$HpZ9bu0vnChLFxq4Otj7YO3VJYAzbk58cc.84Lp5D6/EHmDRK59pG",
+      "createdAt": "2026-09-08T16:47:29.864Z"
+    },
+    {
+      "id": "4528c578-1161-4524-ab5a-46181132d682",
+      "name": "Test User 1",
+      "email": "testuser123@example.com",
+      "passwordHash": "$2a$10$IkBlr2c827rYn1o9BD0jSuAtfPYYdDDEpUjL03JyGy4SdQKTU4R06",
+      "createdAt": "2026-09-08T17:13:46.834Z"
+    },
+    {
+      "id": "be6aa485-8fa6-4fb8-bf34-9afd74da6ddc",
+      "name": "Test User 2",
+      "email": "testuser456@example.com",
+      "passwordHash": "$2a$10$BFDwYrXu5hwCJqjb7GhWEu47kXWAgjiJRJ.c9A/NyH.qC.eFLe8/m",
+      "createdAt": "2026-09-08T17:15:49.071Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "32bc4f80-087c-43a7-85c5-7c1e9c8bcf32",
+      "userId": "77bd8850-35b0-4e3f-be42-60163921ad7c",
+      "totalCost": 3419.1,
+      "products": [
+        {
+          "productId": "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+          "quantity": 2,
+          "deliveryOptionId": "1"
+        },
+        {
+          "productId": "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+          "quantity": 1,
+          "deliveryOptionId": "2"
+        }
+      ],
+      "orderTime": "2026-09-07T16:46:15.852Z",
+      "status": "Pending"
+    },
+    {
+      "id": "00a94535-a01c-49fe-ac9c-9defe2a85e42",
+      "userId": "e0f95248-30c2-4de7-929c-844116fae31a",
+      "totalCost": 3799,
+      "products": [
+        {
+          "productId": "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+          "quantity": 2,
+          "deliveryOptionId": "1"
+        },
+        {
+          "productId": "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+          "quantity": 1,
+          "deliveryOptionId": "2"
+        }
+      ],
+      "orderTime": "2026-09-07T16:48:30.865Z",
+      "status": "Pending"
+    },
+    {
+      "id": "331b930e-e2f0-43af-ae55-c648bdf301f5",
+      "userId": "0e63bbce-93f0-47a9-a4b4-8376cc804131",
+      "totalCost": 4519,
+      "products": [
+        {
+          "productId": "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+          "quantity": 2,
+          "deliveryOptionId": "3"
+        }
+      ],
+      "orderTime": "2026-09-07T16:55:36.244Z",
+      "status": "Pending"
+    },
+    {
+      "id": "5ca325d5-94e7-4839-b849-cd1978596cd3",
+      "userId": "e1f84815-d3a4-4cff-a669-d7f0c1c21f8c",
+      "totalCost": 770,
+      "products": [
+        {
+          "productId": "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+          "quantity": 1,
+          "deliveryOptionId": "1"
+        }
+      ],
+      "orderTime": "2026-09-08T16:50:27.232Z",
+      "status": "Pending"
+    },
+    {
+      "id": "819a58e9-dec3-4a03-bc00-7d3764c1687b",
+      "userId": "guest",
+      "totalCost": 1592.1,
+      "products": [
+        {
+          "productId": "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+          "quantity": 1,
+          "deliveryOptionId": "3"
+        }
+      ],
+      "orderTime": "2026-09-23T16:59:08.499Z",
+      "status": "Pending"
+    }
+  ]
+}

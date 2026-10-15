@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="icon" type="image/png" href="images/amazon-mobile-logo-white.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/orders.css">
+  </head>
+  <body>
+    <div class="header-container">
+      <div class="left-section">
+        <a class="amazon-link header-link" href="index.html">
+          <img class="amazon-logo" src="images/amazon-logo-white.png">
+          <img class="amazon-mobile-logo" src="images/amazon-mobile-logo-white.png">
+        </a>
+      </div>
+      <div class="middle-section">
+        <input class="search-bar js-order-search-input" type="text" placeholder="Search your orders..." autocomplete="off">
+        <button class="search-icon js-order-search-btn" aria-label="Search orders">
+          <img class="search-icon-image" src="icons/search-icon.png">
+        </button>
+      </div>
+      <div class="right-section">
+        <a class="orders-link header-link" href="orders.html">
+          <span class="returns">Returns</span>
+          <span class="orders">& Orders</span>
+        </a>
+        <a class="cart-link header-link" href="checkout.html">
+          <img class="cart-icon" src="icons/cart-icon.png">
+          <div class="cart-quantity js-cart-quantity">0</div>
+          <div class="cart-text">Cart</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="orders-title-bar">
+        <div class="title">Your Orders</div>
+        <div class="orders-filter-bar">
+          <button class="filter-btn active js-filter-btn" data-filter="all">All</button>
+          <button class="filter-btn js-filter-btn" data-filter="arriving">Arriving</button>
+          <button class="filter-btn js-filter-btn" data-filter="delivered">Delivered</button>
+        </div>
+      </div>
+      <div class="orders-search-status js-orders-search-status" hidden></div>
+      <div class="orders-grid js-orders-grid">
+      </div>
+    </div>
+    
+    <script type="module" src="scripts/orders.js"></script>
+  </body>    
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon</title>
+  <link rel="icon" type="image/png" href="images/amazon-mobile-logo-white.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/amazon-search.css">
+
+</head>
+
+<body>
+  <div class="header-container">
+    <div class="left-section">
+      <a class="amazon-link header-link" href="index.html">
+        <img class="amazon-logo" src="images/amazon-logo-white.png">
+        <img class="amazon-mobile-logo" src="images/amazon-mobile-logo-white.png">
+      </a>
+    </div>
+    <div class="middle-section js-search-wrap">
+      <input class="search-bar js-search-input" type="text" placeholder="Search" autocomplete="off">
+      <button class="search-icon js-search-btn" aria-label="Search">
+        <img class="search-icon-image" src="icons/search-icon.png">
+      </button>
+
+      <div class="js-search-results" aria-live="polite" role="listbox" hidden>
+        <div class="search-results-header">Top results</div>
+        <div class="search-results-list js-search-results-list"></div>
+        <div class="search-results-empty js-search-results-empty" hidden>No products found</div>
+      </div>
+    </div>
+
+    <div class="right-section">
+      <a class="orders-link header-link" href="orders.html">
+        <span class="returns">Returns</span>
+        <span class="orders">& Orders</span>
+      </a>
+      <a class="cart-link header-link" href="checkout.html">
+        <img class="cart-icon" src="icons/cart-icon.png">
+        <div class="cart-quantity js-cart-quantity"></div>
+        <div class="cart-text">Cart</div>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="main-container">
+    <div style="height: 10px;"></div>
+
+    <div class="products-grid js-products-grid">
+
+    </div>
+  </div>
+  <script type="module" src="scripts/amazon.js"></script>
+</body>
+
+
+</html>

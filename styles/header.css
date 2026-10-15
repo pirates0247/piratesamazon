@@ -1,0 +1,257 @@
+.header-container {
+  background-color: rgb(19, 25, 33);
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 1000;
+}
+
+.left-section {
+  width: 180px;
+}
+
+@media (max-width: 800px) {
+  .left-section {
+    width: unset;
+  }
+}
+
+.amazon-logo {
+  width: 100px;
+  margin-top: 5px;
+  /*margin-left: 15px;
+  margin-top: 15px;*/
+}
+
+.amazon-mobile-logo {
+  display: none;
+}
+
+@media (max-width: 575px) {
+  .amazon-logo {
+    display: none;
+  }
+
+  .amazon-mobile-logo {
+    display: block;
+    height: 35px;
+    margin-top: 5px;
+  }
+
+  /*.search-bar{
+    margin-left: -135px;
+  }*/
+}
+
+/*@media (min-width: 585px){
+  .search-bar{
+    margin-left: -65px;
+  }
+}*/
+.header-link {
+  display: inline-block;
+  padding: 6px;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.header-link:hover {
+  border: solid;
+  border-color: white;
+  border-width: 1px;
+}
+
+.middle-section {
+  display: flex;
+  flex: 1;
+  max-width: 850px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* ── Mobile: 2-row header layout ─────────────────────────── */
+@media (max-width: 600px) {
+  .header-container {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 8px 12px 6px;
+    gap: 6px;
+  }
+
+  /* Top row: logo left, nav right */
+  .left-section {
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  .right-section {
+    order: 2;
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  /* Bottom row: search spans full width */
+  .middle-section {
+    order: 3;
+    flex: 0 0 100%;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  /* Bigger search bar for touch */
+  .search-bar {
+    height: 44px;
+    font-size: 16px;
+    /* prevents iOS zoom-in on focus */
+    padding-left: 14px;
+  }
+
+  .search-icon {
+    height: 44px;
+    width: 50px;
+  }
+
+  .search-icon-image {
+    height: 22px;
+  }
+
+  /* Offset main content to clear the taller 2-row header */
+  .main-container {
+    margin-top: 118px;
+  }
+}
+
+.search-bar {
+  flex: 1;
+  width: 0;
+  font-size: 16px;
+  height: 38px;
+  padding-left: 15px;
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.search-icon {
+  background-color: rgb(254, 189, 105);
+  border: none;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: 45px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.search-icon-image {
+  height: 22px;
+  margin-left: 2px;
+  margin-top: 3px;
+}
+
+.right-section {
+  width: 180px;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: end;
+}
+
+.orders-link {
+  color: white;
+}
+
+.returns {
+  display: block;
+  font-size: 13px;
+}
+
+.orders {
+  display: block;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.cart-link {
+  color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+}
+
+.cart-text {
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.cart-icon {
+  width: 50px;
+}
+
+.cart-quantity {
+  color: rgb(240, 136, 4);
+  font-weight: bold;
+  font-size: 16px;
+  position: absolute;
+  top: 4px;
+  left: 22px;
+  width: 25px;
+  text-align: center;
+}
+
+/* ── Mobile search bar centering (325px–475px) ───────────── */
+/* Override the 600px breakpoint to keep search in the same row */
+@media (min-width: 325px) and (max-width: 475px) {
+  .header-container {
+    flex-wrap: nowrap;
+    padding: 8px 10px;
+    gap: 4px;
+    height: 56px;
+  }
+
+  .left-section {
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  .middle-section {
+    order: 2;
+    flex: 1 1 0%;
+    margin: 0 6px;
+    max-width: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  .right-section {
+    order: 3;
+    flex: 0 0 auto;
+  }
+
+  .search-bar {
+    height: 38px;
+    font-size: 14px;
+  }
+
+  .search-icon {
+    height: 38px;
+    width: 42px;
+  }
+
+  /* Offset main content for the single-row header */
+  .main-container {
+    margin-top: 70px;
+  }
+}

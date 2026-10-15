@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Payment | Amazon</title>
+  <link rel="icon" type="image/png" href="images/amazon-mobile-logo-white.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Secure payment gateway - choose from UPI, Cards, Netbanking, Razorpay, Paytm and more">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/checkout-header.css">
+  <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/payment.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="checkout-header">
+    <div class="header-content">
+      <div class="checkout-header-left-section">
+        <a href="index.html">
+          <img class="amazon-logo" src="images/amazon-logo.png" alt="Amazon">
+          <img class="amazon-mobile-logo" src="images/amazon-mobile-logo.png" alt="Amazon">
+        </a>
+      </div>
+      <div class="checkout-header-middle-section">
+        Secure Payment
+      </div>
+      <div class="checkout-header-right-section">
+        <img src="icons/checkout-lock-icon.png" alt="Secure">
+      </div>
+    </div>
+  </div>
+
+  <div class="payment-page-container">
+    <!-- Left: Payment Methods -->
+    <div class="payment-methods-panel">
+      <div class="payment-empty-box js-payment-empty" style="display:none;">
+        <h2 style="margin:0 0 6px; font-size:18px;">No products added</h2>
+        <p style="margin:0; color:#767676; font-size:13px;">Add items to your cart to proceed to payment.</p>
+      </div>
+      <div class="panel-header">
+        <span class="lock-icon">🔒</span>
+        <h1 class="panel-title">Choose Payment Method</h1>
+      </div>
+
+      <!-- Payment Tabs -->
+      <div class="payment-tabs" role="tablist">
+        <button class="tab-btn active" id="tab-upi" data-tab="upi" role="tab" aria-selected="true">
+          <span class="tab-icon">📱</span> UPI
+        </button>
+        <button class="tab-btn" id="tab-card" data-tab="card" role="tab" aria-selected="false">
+          <span class="tab-icon">💳</span> Cards
+        </button>
+        <button class="tab-btn" id="tab-netbanking" data-tab="netbanking" role="tab" aria-selected="false">
+          <span class="tab-icon">🏦</span> Net Banking
+        </button>
+        <button class="tab-btn" id="tab-wallet" data-tab="wallet" role="tab" aria-selected="false">
+          <span class="tab-icon">👛</span> Wallets
+        </button>
+        <button class="tab-btn" id="tab-cod" data-tab="cod" role="tab" aria-selected="false">
+          <span class="tab-icon">📦</span> COD
+        </button>
+      </div>
+
+      <!-- UPI Tab -->
+      <div class="tab-content active" id="content-upi" role="tabpanel">
+        <div class="section-label">Popular UPI Apps</div>
+        <div class="upi-apps-grid">
+          <div class="upi-app-card js-upi-app" data-app="gpay" id="upi-gpay">
+            <img class="upi-app-logo" src="images/gpay.png" alt="Google Pay">
+            <span>Google Pay</span>
+          </div>
+          <div class="upi-app-card js-upi-app" data-app="phonepe" id="upi-phonepe">
+            <img class="upi-app-logo" src="images/phonepe.png" alt="PhonePe">
+            <span>PhonePe</span>
+          </div>
+          <div class="upi-app-card js-upi-app" data-app="paytm" id="upi-paytm">
+            <img class="upi-app-logo" src="images/Paytm.png" alt="Paytm">
+            <span>Paytm</span>
+          </div>
+          <div class="upi-app-card js-upi-app" data-app="bhim" id="upi-bhim">
+            <img class="upi-app-logo" src="images/bhim" alt="BHIM UPI">
+            <span>BHIM UPI</span>
+          </div>
+          <div class="upi-app-card js-upi-app" data-app="amazonpay" id="upi-amazonpay">
+            <img class="upi-app-logo" src="images/amazonpay.png" alt="Amazon Pay">
+            <span>Amazon Pay</span>
+          </div>
+          <div class="upi-app-card js-upi-app" data-app="other" id="upi-other">
+            <div class="upi-app-logo other-logo">UPI</div>
+            <span>Other UPI</span>
+          </div>
+        </div>
+
+        <div class="divider"><span>OR enter UPI ID</span></div>
+
+        <div class="upi-id-section">
+          <div class="input-group" id="upi-id-group">
+            <label class="input-label" for="upi-id-input">UPI ID / VPA</label>
+            <div class="input-with-verify">
+              <input type="text" id="upi-id-input" class="form-input" placeholder="yourname@upi" autocomplete="off">
+              <button class="verify-btn js-verify-upi" id="verify-upi-btn">Verify</button>
+            </div>
+            <span class="input-hint">e.g., name@okicici, name@ybl, name@paytm</span>
+            <span class="input-error" id="upi-error"></span>
+            <span class="input-success" id="upi-success"></span>
+          </div>
+        </div>
+
+        <button class="pay-btn js-pay-now" id="upi-pay-btn" data-method="UPI">
+          <span class="pay-btn-text">Pay via UPI</span>
+          <span class="pay-btn-amount js-pay-amount"></span>
+        </button>
+      </div>
+
+      <!-- Card Tab -->
+      <div class="tab-content" id="content-card" role="tabpanel">
+        <div class="card-type-selector">
+          <label class="card-type-option">
+            <input type="radio" name="card-type" value="credit" id="credit-card-radio" checked>
+            <span class="card-type-label">Credit Card</span>
+          </label>
+          <label class="card-type-option">
+            <input type="radio" name="card-type" value="debit" id="debit-card-radio">
+            <span class="card-type-label">Debit Card</span>
+          </label>
+        </div>
+
+        <div class="card-preview" id="card-preview-display">
+          <div class="card-chip"></div>
+          <div class="card-number-display" id="card-display-number">•••• •••• •••• ••••</div>
+          <div class="card-bottom-row">
+            <div>
+              <div class="card-label-small">Card Holder</div>
+              <div class="card-holder-display" id="card-display-name">YOUR NAME</div>
+            </div>
+            <div>
+              <div class="card-label-small">Expires</div>
+              <div class="card-expiry-display" id="card-display-expiry">MM/YY</div>
+            </div>
+            <div class="card-network-display" id="card-network-logo">CARD</div>
+          </div>
+        </div>
+
+        <div class="card-form">
+          <div class="input-group">
+            <label class="input-label" for="card-number-input">Card Number</label>
+            <input type="text" id="card-number-input" class="form-input" placeholder="1234 5678 9012 3456"
+              maxlength="19" autocomplete="cc-number">
+            <span class="input-error" id="card-number-error"></span>
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="card-name-input">Cardholder Name</label>
+            <input type="text" id="card-name-input" class="form-input" placeholder="Name as on card"
+              autocomplete="cc-name">
+          </div>
+          <div class="card-row-two">
+            <div class="input-group">
+              <label class="input-label" for="card-expiry-input">Expiry Date</label>
+              <input type="text" id="card-expiry-input" class="form-input" placeholder="MM/YY" maxlength="5"
+                autocomplete="cc-exp">
+              <span class="input-error" id="expiry-error"></span>
+            </div>
+            <div class="input-group">
+              <label class="input-label" for="card-cvv-input">
+                CVV <span class="cvv-hint" title="3-digit code on back of card">?</span>
+              </label>
+              <input type="password" id="card-cvv-input" class="form-input" placeholder="•••" maxlength="4"
+                autocomplete="cc-csc">
+              <span class="input-error" id="cvv-error"></span>
+            </div>
+          </div>
+          <label class="save-card-label">
+            <input type="checkbox" id="save-card-check" class="save-card-input">
+            <span>Save this card securely for future use</span>
+          </label>
+        </div>
+
+        <button class="pay-btn js-pay-now" id="card-pay-btn" data-method="Card">
+          <span class="pay-btn-text">Pay with Card</span>
+          <span class="pay-btn-amount js-pay-amount"></span>
+        </button>
+      </div>
+
+      <!-- Net Banking Tab -->
+      <div class="tab-content" id="content-netbanking" role="tabpanel">
+        <div class="section-label">Popular Banks</div>
+        <div class="bank-grid">
+          <label class="bank-card js-bank-option">
+            <input type="radio" name="bank" value="sbi" id="bank-sbi">
+            <img class="bank-logo" src="images/SBI-Logo.png" alt="SBI">
+            <span>State Bank</span>
+          </label>
+          <label class="bank-card js-bank-option">
+            <input type="radio" name="bank" value="hdfc" id="bank-hdfc">
+            <img class="bank-logo" src="images/hdfc-bank.png" alt="HDFC">
+            <span>HDFC Bank</span>
+          </label>
+          <label class="bank-card js-bank-option">
+            <input type="radio" name="bank" value="icici" id="bank-icici">
+            <img class="bank-logo" src="images/ICICI-logo.png" alt="ICICI">
+            <span>ICICI Bank</span>
+          </label>
+          <label class="bank-card js-bank-option">
+            <input type="radio" name="bank" value="axis" id="bank-axis">
+            <img class="bank-logo" src="images/axis" alt="Axis Bank">
+            <span>Axis Bank</span>
+          </label>
+          <label class="bank-card js-bank-option">
+            <input type="radio" name="bank" value="kotak" id="bank-kotak">
+            <img class="bank-logo" src="images/kotak-mahindra-bank--600.png" alt="Kotak Bank">
+            <span>Kotak Bank</span>
+          </label>
+          <label class="bank-card js-bank-option">
+            <input type="radio" name="bank" value="bob" id="bank-bob">
+            <img class="bank-logo" src="images/bob.png" alt="Bank of Baroda">
+            <span>Bank of Baroda</span>
+          </label>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="bank-select">Or select your bank</label>
+          <select class="form-input form-select" id="bank-select">
+            <option value="">-- Select Bank --</option>
+            <option value="sbi">State Bank of India</option>
+            <option value="hdfc">HDFC Bank</option>
+            <option value="icici">ICICI Bank</option>
+            <option value="axis">Axis Bank</option>
+            <option value="kotak">Kotak Mahindra Bank</option>
+            <option value="bob">Bank of Baroda</option>
+            <option value="pnb">Punjab National Bank</option>
+            <option value="canara">Canara Bank</option>
+            <option value="idbi">IDBI Bank</option>
+            <option value="yes">Yes Bank</option>
+            <option value="indusind">IndusInd Bank</option>
+            <option value="federal">Federal Bank</option>
+          </select>
+        </div>
+
+        <button class="pay-btn js-pay-now" id="netbanking-pay-btn" data-method="Net Banking">
+          <span class="pay-btn-text">Pay via Net Banking</span>
+          <span class="pay-btn-amount js-pay-amount"></span>
+        </button>
+      </div>
+
+      <!-- Wallet Tab -->
+      <div class="tab-content" id="content-wallet" role="tabpanel">
+        <div class="section-label">Choose Wallet</div>
+        <div class="wallet-list">
+          <label class="wallet-item js-wallet-option" id="wallet-paytm-item">
+            <input type="radio" name="wallet" value="paytm" id="wallet-paytm">
+            <div class="wallet-icon">
+              <img class="wallet-logo-img" src="images/Paytm.png" alt="Paytm">
+            </div>
+            <div class="wallet-info">
+              <div class="wallet-name">Paytm Wallet</div>
+              <div class="wallet-desc">Balance: ₹2,500 available</div>
+            </div>
+            <div class="wallet-radio-indicator"></div>
+          </label>
+
+          <label class="wallet-item js-wallet-option" id="wallet-amazonpay-item">
+            <input type="radio" name="wallet" value="amazonpay" id="wallet-amazonpay">
+            <div class="wallet-icon">
+              <img class="wallet-logo-img" src="images/amazonpay.png" alt="Amazon Pay">
+            </div>
+            <div class="wallet-info">
+              <div class="wallet-name">Amazon Pay</div>
+              <div class="wallet-desc">Get ₹50 cashback on first use</div>
+            </div>
+            <div class="wallet-radio-indicator"></div>
+          </label>
+
+          <label class="wallet-item js-wallet-option" id="wallet-mobikwik-item">
+            <input type="radio" name="wallet" value="mobikwik" id="wallet-mobikwik">
+            <div class="wallet-icon">
+              <img class="wallet-logo-img" src="images/mobikwik-380.avif" alt="MobiKwik">
+            </div>
+            <div class="wallet-info">
+              <div class="wallet-name">MobiKwik</div>
+              <div class="wallet-desc">Instant cashback & rewards</div>
+            </div>
+            <div class="wallet-radio-indicator"></div>
+          </label>
+
+          <label class="wallet-item js-wallet-option" id="wallet-freecharge-item">
+            <input type="radio" name="wallet" value="freecharge" id="wallet-freecharge">
+            <div class="wallet-icon">
+              <img class="wallet-logo-img" src="images/freecharge.png" alt="FreeCharge">
+            </div>
+            <div class="wallet-info">
+              <div class="wallet-name">FreeCharge</div>
+              <div class="wallet-desc">Pay & earn rewards</div>
+            </div>
+            <div class="wallet-radio-indicator"></div>
+          </label>
+
+          <label class="wallet-item js-wallet-option" id="wallet-jio-item">
+            <input type="radio" name="wallet" value="jiomoney" id="wallet-jiomoney">
+            <div class="wallet-icon">
+              <img class="wallet-logo-img" src="images/Reliance_Jio_Logo.svg.webp" alt="JioMoney">
+            </div>
+            <div class="wallet-info">
+              <div class="wallet-name">JioMoney</div>
+              <div class="wallet-desc">For Jio subscribers</div>
+            </div>
+            <div class="wallet-radio-indicator"></div>
+          </label>
+        </div>
+
+        <button class="pay-btn js-pay-now" id="wallet-pay-btn" data-method="Wallet">
+          <span class="pay-btn-text">Pay via Wallet</span>
+          <span class="pay-btn-amount js-pay-amount"></span>
+        </button>
+      </div>
+
+      <!-- COD Tab -->
+      <div class="tab-content" id="content-cod" role="tabpanel">
+        <div class="cod-illustration">
+          <div class="cod-icon">📦</div>
+          <h2 class="cod-title">Cash on Delivery</h2>
+          <p class="cod-desc">Pay in cash when your order is delivered to your doorstep. No extra charges.</p>
+        </div>
+
+        <div class="cod-details">
+          <div class="cod-detail-row">
+            <span class="cod-detail-icon">✅</span>
+            <span>No online payment required</span>
+          </div>
+          <div class="cod-detail-row">
+            <span class="cod-detail-icon">✅</span>
+            <span>Pay when you receive</span>
+          </div>
+          <div class="cod-detail-row">
+            <span class="cod-detail-icon">✅</span>
+            <span>Exact change appreciated</span>
+          </div>
+          <div class="cod-detail-row">
+            <span class="cod-detail-icon">⚠️</span>
+            <span>COD charges ₹40 may apply</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="cod-phone">Delivery Contact Number</label>
+          <input type="tel" id="cod-phone" class="form-input" placeholder="10-digit mobile number" maxlength="10"
+            autocomplete="tel">
+          <span class="input-error" id="cod-error"></span>
+        </div>
+
+
+        <button class="pay-btn js-pay-now cod-confirm-btn" id="cod-pay-btn" data-method="Cash on Delivery">
+          <span class="pay-btn-text">Confirm COD Order</span>
+          <span class="pay-btn-amount js-pay-amount"></span>
+        </button>
+      </div>
+
+      <!-- Razorpay Promo -->
+      <div class="razorpay-promo">
+        <span class="rp-badge">Powered by</span>
+        <span class="rp-name">Razorpay</span>
+        <!--  <span class="rp-secure">🔒 256-bit SSL Secured</span>-->
+      </div>
+    </div>
+
+    <!-- Right: Order Summary -->
+    <div class="order-summary-panel">
+      <div class="summary-header">Order Summary</div>
+      <div class="summary-items js-summary-items">
+        <!-- Populated by JS -->
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-row">
+        <span>Items</span>
+        <span class="js-summary-items-price">₹0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>Shipping &amp; Handling</span>
+        <span class="js-summary-shipping">₹0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>Tax (10%)</span>
+        <span class="js-summary-tax">₹0.00</span>
+      </div>
+      <div class="summary-row cod-charges-row js-cod-charges-row" style="display:none;">
+        <span>COD Charges</span>
+        <span class="js-cod-charges-amount">₹40.00</span>
+      </div>
+      <div class="summary-row discount-row js-discount-row" style="display:none;">
+        <span class="js-discount-label">Discount</span>
+        <span class="js-discount-amount">-₹0.00</span>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-row total-row">
+        <span>Order Total</span>
+        <span class="js-summary-total">₹0.00</span>
+      </div>
+
+      <!-- Coupon Input -->
+      <div class="coupon-section">
+        <div class="coupon-input-wrap">
+          <input type="text" class="coupon-input js-coupon-input" id="coupon-input" placeholder="Enter coupon code"
+            autocomplete="off">
+          <button class="coupon-apply-btn js-coupon-apply" id="apply-coupon-btn">Apply</button>
+        </div>
+        <div class="coupon-message js-coupon-message" id="coupon-message"></div>
+      </div>
+
+      <div class="payment-empty-state js-payment-empty" style="display:none;">
+        <div style="padding:14px 0 4px;color:#C0392B;font-weight:800;">No products added</div>
+        <div style="font-size:13px;color:#767676;line-height:1.4;">Add items to your cart to proceed.</div>
+      </div>
+
+
+      <div class="offers-section">
+        <div class="offer-header">🎁 Available Offers</div>
+        <div class="offer-item js-offer-item" data-code="SAVE10" id="offer-save10">
+          <span class="offer-tag">SAVE10</span>
+          <span class="offer-text">10% off on first UPI payment</span>
+        </div>
+        <div class="offer-item js-offer-item" data-code="HDFC5" id="offer-hdfc5">
+          <span class="offer-tag">HDFC5</span>
+          <span class="offer-text">5% cashback on HDFC cards</span>
+        </div>
+        <div class="offer-item js-offer-item" data-code="PAYTM50" id="offer-paytm50">
+          <span class="offer-tag">PAYTM50</span>
+          <span class="offer-text">₹50 off via Paytm Wallet</span>
+        </div>
+      </div>
+      <!--
+        <div class="security-badges">
+          <div class="badge-item">🔒 SSL Secured</div>
+          <div class="badge-item">✅ PCI DSS</div>
+          <div class="badge-item">🛡️ Buyer Protected</div>
+        </div>
+      </div>
+    </div>
+  -->
+
+      <!-- Payment Processing Modal -->
+      <div class="payment-modal-overlay" id="payment-modal" role="dialog" aria-modal="true"
+        aria-labelledby="modal-title">
+        <div class="payment-modal">
+          <div class="modal-processing" id="modal-processing">
+            <div class="processing-spinner"></div>
+            <div class="processing-title" id="modal-title">Processing Payment...</div>
+            <div class="processing-subtitle" id="modal-subtitle">Please do not close this window</div>
+            <div class="processing-method" id="modal-method-name"></div>
+          </div>
+
+          <div class="modal-success" id="modal-success" style="display:none;">
+            <div class="success-icon">✅</div>
+            <div class="success-title">Payment Successful!</div>
+            <div class="success-subtitle" id="success-order-id">Order #AMZ-2024-XXXXX confirmed</div>
+            <div class="success-amount" id="success-amount-display"></div>
+            <button class="success-btn" id="go-to-orders-btn" onclick="window.location.href='orders.html'">
+              View Your Orders
+            </button>
+            <a href="index.html" class="continue-shopping-link">Continue Shopping</a>
+          </div>
+
+          <div class="modal-failure" id="modal-failure" style="display:none;">
+            <div class="failure-icon">❌</div>
+            <div class="failure-title">Payment Failed</div>
+            <div class="failure-subtitle">Your payment could not be processed. Please try again.</div>
+            <button class="retry-btn js-retry-payment" id="retry-payment-btn">Try Again</button>
+          </div>
+        </div>
+      </div>
+
+      <script type="module" src="scripts/payment.js"></script>
+</body>
+
+</html>
